@@ -5,12 +5,11 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3%2B-blue.svg)](https://www.typescriptlang.org/)
 [![ComfyUI](https://img.shields.io/badge/ComfyUI-Compatible-orange.svg)](https://github.com/comfyanonymous/ComfyUI)
 
-A **comprehensive Model Context Protocol (MCP) server** for ComfyUI with **automatic agentic controlling capabilities**, **intelligent workflow orchestration**, and **self-improving DGM integration**.
+A **comprehensive Model Context Protocol (MCP) server** for ComfyUI with **automatic agentic controlling capabilities**, **intelligent workflow orchestration**
 
 ## 🌟 Key Highlights
 
 - 🤖 **Fully Autonomous ComfyUI Control** - Complete API automation with intelligent decision making
-- 🔄 **Self-Improving Architecture** - DGM-powered recursive optimization and learning
 - 🎭 **Advanced Workflow Orchestration** - Chain complex workflows with dependencies and error handling
 - 🖼️ **Intelligent Image Routing** - Automatic image bridging between workflows
 - 🔧 **Smart Custom Node Management** - Automated installation with dependency resolution
@@ -22,7 +21,6 @@ A **comprehensive Model Context Protocol (MCP) server** for ComfyUI with **autom
 
 ### 🤖 **Autonomous AI Control**
 - **Intelligent Workflow Management**: AI-driven workflow selection and optimization
-- **DGM Self-Improvement**: Recursive learning and performance enhancement
 - **Automatic Error Recovery**: Smart error detection and resolution
 - **Adaptive Performance Tuning**: Dynamic optimization based on system capabilities
 
@@ -135,151 +133,7 @@ start-comfyui-mcp.bat
 npm start
 # or
 node build/index.js
-```
 
-### 🎭 **Advanced Workflow System**
-
-#### **🔥 Single Workflow Execution**
-Execute individual workflows with dynamic parameter injection:
-
-```javascript
-// Basic execution
-Tool: run_workflow_with_parameters
-Parameters:
-- workflowName: "text2img_api"
-- parameters: {
-    "positive_prompt": "beautiful landscape, 4k, detailed",
-    "negative_prompt": "blurry, low quality",
-    "width": 1920,
-    "height": 1080,
-    "batch_size": 4,
-    "steps": 20,
-    "cfg": 7.0,
-    "seed": -1
-  }
-```
-
-#### **🎭 Workflow Orchestration**
-Chain multiple workflows with intelligent dependencies:
-
-```javascript
-// Create workflow chain
-Tool: create_workflow_chain
-Parameters:
-- name: "text2img_to_upscale_pipeline"
-- description: "Generate image then upscale"
-- steps: [
-    {
-      "id": "generate",
-      "workflowFile": "text2img_api",
-      "parameters": {"batch_size": 1, "seed": 42}
-    },
-    {
-      "id": "upscale",
-      "workflowFile": "upscaling_api",
-      "dependencies": ["generate"],
-      "routeFromPrevious": true
-    }
-  ]
-
-// Execute the chain
-Tool: execute_workflow_chain
-Parameters:
-- chainId: "returned-chain-id"
-- dryRun: false
-```
-
-#### **🖼️ Intelligent Image Routing**
-Automatically bridge images between workflows:
-
-```javascript
-// Smart image routing with ML-like decision making
-Tool: smart_route_image
-Parameters:
-- workflowFile: "upscaling_api"
-- confidenceThreshold: 0.8
-- learningMode: true
-
-// Batch image routing
-Tool: batch_route_images
-Parameters:
-- routingConfig: [
-    {
-      "workflowFile": "upscaling_api",
-      "imagePattern": "*.png",
-      "count": 5
-    }
-  ]
-```
-
-#### **🔧 Custom Node Management**
-Install and manage ComfyUI custom nodes automatically:
-
-```javascript
-// Install custom node with automatic dependency resolution
-Tool: install_customnodes
-Parameters:
-- nodeUrl: "https://github.com/kijai/ComfyUI-KJNodes"
-- comfyuiPath: "C:/path/to/ComfyUI"
-- skipDependencies: false
-
-// List all installed custom nodes
-Tool: list_custom_nodes
-Parameters:
-- comfyuiPath: "C:/path/to/ComfyUI"
-- detailed: true
-```
-
-## ⚙️ Configuration
-
-### 🔧 **MCP Client Configuration**
-
-#### **Claude Desktop Configuration**
-Add to your `claude_desktop_config.json`:
-
-```json
-{
-  "mcpServers": {
-    "comfyui": {
-      "command": "node",
-      "args": ["C:/path/to/comfyui-mcp-server/build/index.js"],
-      "env": {
-        "COMFYUI_PATH": "C:/path/to/ComfyUI",
-        "COMFYUI_URL": "http://127.0.0.1:8188"
-      }
-    }
-  }
-}
-```
-
-#### **Augment MCP Configuration**
-Add to your `augment-mcp-config.json`:
-
-```json
-{
-  "mcpServers": {
-    "comfyui-mcp-server": {
-      "command": "C:/path/to/comfyui-mcp-server/mcp-server.bat",
-      "args": [],
-      "env": {
-        "NODE_ENV": "production"
-      }
-    }
-  }
-}
-```
-
-#### **VS Code with MCP Extension**
-```json
-{
-  "mcp.servers": {
-    "comfyui": {
-      "command": "node",
-      "args": ["./build/index.js"],
-      "cwd": "C:/path/to/comfyui-mcp-server"
-    }
-  }
-}
 ```
 
 ### 🎛️ **Server Configuration**
@@ -452,11 +306,6 @@ graph TD
 ```
 
 ### **🧠 Intelligent Systems**
-
-#### **DGM Self-Improvement Loop**
-```
-Performance Analysis → Pattern Recognition → Optimization → Implementation → Validation → Learning
-```
 
 #### **Image Routing Intelligence**
 ```
