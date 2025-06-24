@@ -1,0 +1,232 @@
+{
+  "8": {
+    "inputs": {
+      "samples": [
+        "13",
+        0
+      ],
+      "vae": [
+        "10",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "9": {
+    "inputs": {
+      "filename_prefix": "porsche_targa_elegant_rain_advertisement_001",
+      "images": "mint_green_porsche_upscaled_00002_.png [output]"
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "10": {
+    "inputs": {
+      "vae_name": "ae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "11": {
+    "inputs": {
+      "clip_name1": "ViT-L-14-TEXT-detail-improved-hiT-GmP-TE-only-HF.safetensors",
+      "clip_name2": "t5xxl_fp16.safetensors",
+      "type": "flux",
+      "device": "default"
+    },
+    "class_type": "DualCLIPLoader",
+    "_meta": {
+      "title": "DualCLIPLoader"
+    }
+  },
+  "13": {
+    "inputs": {
+      "noise": [
+        "205",
+        0
+      ],
+      "guider": [
+        "22",
+        0
+      ],
+      "sampler": [
+        "16",
+        0
+      ],
+      "sigmas": [
+        "17",
+        0
+      ],
+      "latent_image": [
+        "172",
+        0
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "SamplerCustomAdvanced"
+    }
+  },
+  "16": {
+    "inputs": {
+      "sampler_name": "dpmpp_2m"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "KSamplerSelect"
+    }
+  },
+  "17": {
+    "inputs": {
+      "scheduler": "beta",
+      "steps": 35,
+      "denoise": 1,
+      "model": [
+        "61",
+        0
+      ]
+    },
+    "class_type": "BasicScheduler",
+    "_meta": {
+      "title": "BasicScheduler"
+    }
+  },
+  "22": {
+    "inputs": {
+      "model": [
+        "61",
+        0
+      ],
+      "conditioning": [
+        "216",
+        0
+      ]
+    },
+    "class_type": "BasicGuider",
+    "_meta": {
+      "title": "BasicGuider"
+    }
+  },
+  "61": {
+    "inputs": {
+      "max_shift": 1.15,
+      "base_shift": 0.5,
+      "width": 1920,
+      "height": 1080,
+      "model": [
+        "269",
+        0
+      ]
+    },
+    "class_type": "ModelSamplingFlux",
+    "_meta": {
+      "title": "ModelSamplingFlux"
+    }
+  },
+  "172": {
+    "inputs": {
+      "width": 1920,
+      "height": 1080,
+      "batch_size": 8
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image (21:9)"
+    }
+  },
+  "181": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "205": {
+    "inputs": {
+      "noise_seed": 123456789
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "RandomNoise"
+    }
+  },
+  "216": {
+    "inputs": {
+      "clip_l": "Baby blue Porsche 911 Targa in motion, Norwegian fjords, dramatic shot, luxury automotive photography, dynamic action, Nordic landscape, sophisticated design",
+      "t5xxl": "Baby blue Porsche 911 Targa speeding through dramatic Norwegian fjords in motion, dynamic action shot, luxury automotive photography with breathtaking Nordic landscape. The Targa's distinctive removable roof panel and signature Targa bar are beautifully highlighted against the majestic fjord backdrop. Pristine baby blue metallic paint reflects the crystal-clear Norwegian waters and towering mountain peaks. The vehicle navigates the winding coastal road carved into the dramatic cliffs at high speed, motion blur, dramatic lighting, showcasing German engineering excellence against Norway's natural grandeur. Deep blue fjord waters, snow-capped mountains, and rugged Nordic terrain create a stunning contrast with the elegant baby blue Porsche. Professional automotive photography, cinematic composition, dramatic action shot, luxury brand aesthetic, high-end commercial production values, Norwegian fjord atmosphere, premium automotive marketing imagery, photorealistic detail with advertising polish, motion photography, dynamic composition",
+      "guidance": 3.5,
+      "clip": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncodeFlux",
+    "_meta": {
+      "title": "CLIPTextEncodeFlux"
+    }
+  },
+  "265": {
+    "inputs": {
+      "unet_name": "flux\\flux1-dev-fp8.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "269": {
+    "inputs": {
+      "lora_name": "Targa.safetensors",
+      "strength_model": 1,
+      "model": [
+        "271",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "LoraLoaderModelOnly"
+    }
+  },
+  "270": {
+    "inputs": {
+      "megapixel": "2.5",
+      "aspect_ratio": "16:9 (Panorama)",
+      "divisible_by": "8",
+      "custom_ratio": true,
+      "custom_aspect_ratio": "1:1"
+    },
+    "class_type": "FluxResolutionNode",
+    "_meta": {
+      "title": "Flux Resolution Calc"
+    }
+  },
+  "271": {
+    "inputs": {
+      "lora_name": "flux_detailer.safetensors",
+      "strength_model": 0.6,
+      "model": [
+        "265",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "Flux Detailer LoRA"
+    }
+  }
+}

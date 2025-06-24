@@ -1,0 +1,506 @@
+{
+  "1": {
+    "inputs": {
+      "vae_name": "ae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "2": {
+    "inputs": {
+      "clip_name1": "ViT-L-14-TEXT-detail-improved-hiT-GmP-TE-only-HF.safetensors",
+      "clip_name2": "t5xxl_fp16.safetensors",
+      "type": "flux",
+      "device": "default"
+    },
+    "class_type": "DualCLIPLoader",
+    "_meta": {
+      "title": "DualCLIPLoader"
+    }
+  },
+  "4": {
+    "inputs": {
+      "model_name": "4xNomosUniDAT_otf.pth"
+    },
+    "class_type": "UpscaleModelLoader",
+    "_meta": {
+      "title": "Load Upscale Model"
+    }
+  },
+  "6": {
+    "inputs": {
+      "filename_prefix": "upscaled_output/mint_green_porsche_upscaled",
+      "images": [
+        "7",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "7": {
+    "inputs": {
+      "upscale_by": [
+        "69",
+        3
+      ],
+      "seed": 68774995018358,
+      "steps": 16,
+      "cfg": 1,
+      "sampler_name": "dpmpp_2m",
+      "scheduler": "sgm_uniform",
+      "denoise": [
+        "38",
+        0
+      ],
+      "mode_type": "Linear",
+      "tile_width": [
+        "69",
+        1
+      ],
+      "tile_height": [
+        "69",
+        2
+      ],
+      "mask_blur": 8,
+      "tile_padding": 64,
+      "seam_fix_mode": "None",
+      "seam_fix_denoise": 1,
+      "seam_fix_width": 64,
+      "seam_fix_mask_blur": 8,
+      "seam_fix_padding": 16,
+      "force_uniform_tiles": true,
+      "tiled_decode": false,
+      "image": [
+        "69",
+        0
+      ],
+      "model": [
+        "117",
+        0
+      ],
+      "positive": [
+        "111",
+        0
+      ],
+      "negative": [
+        "81",
+        1
+      ],
+      "vae": [
+        "1",
+        0
+      ],
+      "upscale_model": [
+        "4",
+        0
+      ],
+      "custom_sigmas": [
+        "68",
+        0
+      ]
+    },
+    "class_type": "UltimateSDUpscaleCustomSample",
+    "_meta": {
+      "title": "Ultimate SD Upscale (Custom Sample)"
+    }
+  },
+  "38": {
+    "inputs": {
+      "value": 0.13200000000000003
+    },
+    "class_type": "DenoiseSlider",
+    "_meta": {
+      "title": "Upscaling strength"
+    }
+  },
+  "39": {
+    "inputs": {
+      "model_name": "4x-UltraSharp.pth"
+    },
+    "class_type": "UpscaleModelLoader",
+    "_meta": {
+      "title": "Load Upscale Model"
+    }
+  },
+  "41": {
+    "inputs": {
+      "filename_prefix": "upscaled_output/mint_green_porsche_upscaled",
+      "images": [
+        "42",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "42": {
+    "inputs": {
+      "upscale_by": [
+        "45",
+        3
+      ],
+      "seed": 271501746365622,
+      "steps": 20,
+      "cfg": 1,
+      "sampler_name": "dpmpp_2m",
+      "scheduler": "sgm_uniform",
+      "denoise": [
+        "53",
+        0
+      ],
+      "mode_type": "Linear",
+      "tile_width": [
+        "45",
+        1
+      ],
+      "tile_height": [
+        "45",
+        2
+      ],
+      "mask_blur": 8,
+      "tile_padding": 64,
+      "seam_fix_mode": "None",
+      "seam_fix_denoise": 1,
+      "seam_fix_width": 64,
+      "seam_fix_mask_blur": 8,
+      "seam_fix_padding": 16,
+      "force_uniform_tiles": true,
+      "tiled_decode": false,
+      "image": [
+        "45",
+        0
+      ],
+      "model": [
+        "117",
+        0
+      ],
+      "positive": [
+        "111",
+        0
+      ],
+      "negative": [
+        "81",
+        1
+      ],
+      "vae": [
+        "1",
+        0
+      ],
+      "upscale_model": [
+        "39",
+        0
+      ],
+      "custom_sigmas": [
+        "65",
+        0
+      ]
+    },
+    "class_type": "UltimateSDUpscaleCustomSample",
+    "_meta": {
+      "title": "Ultimate SD Upscale (Custom Sample)"
+    }
+  },
+  "45": {
+    "inputs": {
+      "slicing": "4x4",
+      "multiplier": 1,
+      "image": [
+        "7",
+        0
+      ]
+    },
+    "class_type": "FL_SDUltimate_Slices",
+    "_meta": {
+      "title": "FL SDUltimate Slices"
+    }
+  },
+  "49": {
+    "inputs": {
+      "rgthree_comparer": {
+        "images": [
+          {
+            "name": "A",
+            "selected": true,
+            "url": "/api/view?filename=rgthree.compare._temp_zbnof_00003_.png&type=temp&subfolder=&rand=0.5771161198479415"
+          },
+          {
+            "name": "B",
+            "selected": true,
+            "url": "/api/view?filename=rgthree.compare._temp_zbnof_00004_.png&type=temp&subfolder=&rand=0.6296489309577405"
+          }
+        ]
+      },
+      "image_a": [
+        "88",
+        0
+      ],
+      "image_b": [
+        "7",
+        0
+      ]
+    },
+    "class_type": "Image Comparer (rgthree)",
+    "_meta": {
+      "title": "Image Comparer (rgthree)"
+    }
+  },
+  "53": {
+    "inputs": {
+      "value": 0.11200000000000003
+    },
+    "class_type": "DenoiseSlider",
+    "_meta": {
+      "title": "Upscaling strength"
+    }
+  },
+  "64": {
+    "inputs": {
+      "scheduler": "sgm_uniform",
+      "steps": 20,
+      "denoise": 1,
+      "model": [
+        "117",
+        0
+      ]
+    },
+    "class_type": "BasicScheduler",
+    "_meta": {
+      "title": "BasicScheduler"
+    }
+  },
+  "65": {
+    "inputs": {
+      "factor": 0.4000000000000001,
+      "start": 0,
+      "end": 1,
+      "sigmas": [
+        "64",
+        0
+      ]
+    },
+    "class_type": "MultiplySigmas",
+    "_meta": {
+      "title": "Multiply Sigmas (stateless)"
+    }
+  },
+  "66": {
+    "inputs": {
+      "rgthree_comparer": {
+        "images": [
+          {
+            "name": "A",
+            "selected": true,
+            "url": "/api/view?filename=rgthree.compare._temp_jggox_00003_.png&type=temp&subfolder=&rand=0.6415785629417599"
+          },
+          {
+            "name": "B",
+            "selected": true,
+            "url": "/api/view?filename=rgthree.compare._temp_jggox_00004_.png&type=temp&subfolder=&rand=0.5376465582535187"
+          }
+        ]
+      },
+      "image_a": [
+        "7",
+        0
+      ],
+      "image_b": [
+        "42",
+        0
+      ]
+    },
+    "class_type": "Image Comparer (rgthree)",
+    "_meta": {
+      "title": "Image Comparer (rgthree)"
+    }
+  },
+  "67": {
+    "inputs": {
+      "scheduler": "sgm_uniform",
+      "steps": 10,
+      "denoise": 1,
+      "model": [
+        "117",
+        0
+      ]
+    },
+    "class_type": "BasicScheduler",
+    "_meta": {
+      "title": "BasicScheduler"
+    }
+  },
+  "68": {
+    "inputs": {
+      "factor": 0.4000000000000001,
+      "start": 0,
+      "end": 1,
+      "sigmas": [
+        "67",
+        0
+      ]
+    },
+    "class_type": "MultiplySigmas",
+    "_meta": {
+      "title": "Multiply Sigmas (stateless)"
+    }
+  },
+  "69": {
+    "inputs": {
+      "slicing": "2x2",
+      "multiplier": 2,
+      "image": [
+        "88",
+        0
+      ]
+    },
+    "class_type": "FL_SDUltimate_Slices",
+    "_meta": {
+      "title": "FL SDUltimate Slices"
+    }
+  },
+  "78": {
+    "inputs": {
+      "conditioning": [
+        "79",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "ConditioningZeroOut"
+    }
+  },
+  "79": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "80": {
+    "inputs": {
+      "control_net_name": "flux\\Flux1Dev_CNup-FP8.safetensors"
+    },
+    "class_type": "ControlNetLoader",
+    "_meta": {
+      "title": "Load ControlNet Model"
+    }
+  },
+  "81": {
+    "inputs": {
+      "strength": 0.6000000000000001,
+      "start_percent": 0,
+      "end_percent": 0.6000000000000001,
+      "positive": [
+        "79",
+        0
+      ],
+      "negative": [
+        "78",
+        0
+      ],
+      "control_net": [
+        "80",
+        0
+      ],
+      "image": [
+        "88",
+        0
+      ],
+      "vae": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "ControlNetApplyAdvanced",
+    "_meta": {
+      "title": "Apply ControlNet"
+    }
+  },
+  "88": {
+    "inputs": {
+      "image": "porsche_targa_elegant_rain_advertisement_001_00025_.png [output]"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "94": {
+    "inputs": {
+      "unet_name": "flux1-dev-Q8_0.gguf"
+    },
+    "class_type": "UnetLoaderGGUF",
+    "_meta": {
+      "title": "Unet Loader (GGUF)"
+    }
+  },
+  "111": {
+    "inputs": {
+      "guidance": 3.5,
+      "conditioning": [
+        "81",
+        0
+      ]
+    },
+    "class_type": "FluxGuidance",
+    "_meta": {
+      "title": "FluxGuidance"
+    }
+  },
+  "116": {
+    "inputs": {
+      "value": 0.07000000000000002
+    },
+    "class_type": "DenoiseSlider",
+    "_meta": {
+      "title": "Teacache_SpeedBoost"
+    }
+  },
+  "117": {
+    "inputs": {
+      "model_type": "flux",
+      "rel_l1_thresh": [
+        "116",
+        0
+      ],
+      "start_percent": 0,
+      "end_percent": 1,
+      "cache_device": "cuda",
+      "model": [
+        "118",
+        0
+      ]
+    },
+    "class_type": "TeaCache",
+    "_meta": {
+      "title": "TeaCache"
+    }
+  },
+  "118": {
+    "inputs": {
+      "lora_name": "Targa.safetensors",
+      "strength_model": 0.8000000000000002,
+      "model": [
+        "94",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "Targa LoRA"
+    }
+  }
+}

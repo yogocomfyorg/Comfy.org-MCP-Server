@@ -1,0 +1,373 @@
+{
+  "1": {
+    "inputs": {
+      "model": [
+        "14",
+        0
+      ],
+      "conditioning": [
+        "16",
+        0
+      ]
+    },
+    "class_type": "BasicGuider",
+    "_meta": {
+      "title": "BasicGuider"
+    }
+  },
+  "2": {
+    "inputs": {
+      "noise": [
+        "4",
+        0
+      ],
+      "guider": [
+        "1",
+        0
+      ],
+      "sampler": [
+        "5",
+        0
+      ],
+      "sigmas": [
+        "6",
+        0
+      ],
+      "latent_image": [
+        "16",
+        2
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "SamplerCustomAdvanced"
+    }
+  },
+  "3": {
+    "inputs": {
+      "samples": [
+        "2",
+        0
+      ],
+      "vae": [
+        "23",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "4": {
+    "inputs": {
+      "noise_seed": [
+        "29",
+        0
+      ]
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "RandomNoise"
+    }
+  },
+  "5": {
+    "inputs": {
+      "sampler_name": "euler"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "KSamplerSelect"
+    }
+  },
+  "6": {
+    "inputs": {
+      "scheduler": "beta",
+      "steps": 20,
+      "denoise": 0.5,
+      "model": [
+        "14",
+        0
+      ]
+    },
+    "class_type": "BasicScheduler",
+    "_meta": {
+      "title": "BasicScheduler"
+    }
+  },
+  "7": {
+    "inputs": {
+      "unet_name": "flux\\flux1-fill-dev.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "9": {
+    "inputs": {
+      "conditioning": [
+        "10",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "ConditioningZeroOut"
+    }
+  },
+  "10": {
+    "inputs": {
+      "text": "porsche ",
+      "clip": [
+        "45",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "12": {
+    "inputs": {
+      "images": [
+        "38",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "14": {
+    "inputs": {
+      "model": [
+        "43",
+        0
+      ]
+    },
+    "class_type": "DifferentialDiffusion",
+    "_meta": {
+      "title": "Differential Diffusion"
+    }
+  },
+  "15": {
+    "inputs": {
+      "guidance": 45,
+      "conditioning": [
+        "10",
+        0
+      ]
+    },
+    "class_type": "FluxGuidance",
+    "_meta": {
+      "title": "FluxGuidance"
+    }
+  },
+  "16": {
+    "inputs": {
+      "noise_mask": false,
+      "positive": [
+        "15",
+        0
+      ],
+      "negative": [
+        "9",
+        0
+      ],
+      "vae": [
+        "23",
+        0
+      ],
+      "pixels": [
+        "35",
+        1
+      ],
+      "mask": [
+        "35",
+        2
+      ]
+    },
+    "class_type": "InpaintModelConditioning",
+    "_meta": {
+      "title": "InpaintModelConditioning"
+    }
+  },
+  "21": {
+    "inputs": {
+      "image": "porsche_targa_elegant_rain_advertisement_001_00024_.png [output]"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "23": {
+    "inputs": {
+      "vae_name": "ae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "25": {
+    "inputs": {
+      "clip_name1": "clip_l.safetensors",
+      "clip_name2": "t5xxl_fp16.safetensors",
+      "type": "flux",
+      "device": "default"
+    },
+    "class_type": "DualCLIPLoader",
+    "_meta": {
+      "title": "DualCLIPLoader"
+    }
+  },
+  "29": {
+    "inputs": {
+      "seed": 975983175296271
+    },
+    "class_type": "Seed Everywhere",
+    "_meta": {
+      "title": "Seed"
+    }
+  },
+  "35": {
+    "inputs": {
+      "mode": "free",
+      "invert_mask": false,
+      "fill_mask_holes": true,
+      "use_gpu": false,
+      "context_pixels": 10,
+      "context_factor": 1.01,
+      "force_square": false,
+      "forced_size": 1024,
+      "minimum_size": 512,
+      "maximum_size": 1024,
+      "target_size": 1024,
+      "free_rescale": 1,
+      "free_padding": 32,
+      "image": [
+        "42",
+        0
+      ],
+      "mask": [
+        "41",
+        1
+      ]
+    },
+    "class_type": "FL_InpaintCrop",
+    "_meta": {
+      "title": "FL Inpaint Crop"
+    }
+  },
+  "38": {
+    "inputs": {
+      "stitch": [
+        "35",
+        0
+      ],
+      "inpainted_image": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "FL_Inpaint_Stitch",
+    "_meta": {
+      "title": "FL Inpaint Stitch"
+    }
+  },
+  "40": {
+    "inputs": {
+      "mask": [
+        "41",
+        1
+      ]
+    },
+    "class_type": "MaskPreview+",
+    "_meta": {
+      "title": "🔧 Mask Preview"
+    }
+  },
+  "41": {
+    "inputs": {
+      "torchscript_jit": "default",
+      "image": [
+        "21",
+        0
+      ]
+    },
+    "class_type": "InspyrenetRembg",
+    "_meta": {
+      "title": "Inspyrenet Rembg"
+    }
+  },
+  "42": {
+    "inputs": {
+      "image": [
+        "41",
+        0
+      ]
+    },
+    "class_type": "ImageRemoveAlpha+",
+    "_meta": {
+      "title": "🔧 Image Remove Alpha"
+    }
+  },
+  "43": {
+    "inputs": {
+      "max_shift": 1.15,
+      "base_shift": 0.5,
+      "width": [
+        "44",
+        0
+      ],
+      "height": [
+        "44",
+        1
+      ],
+      "model": [
+        "45",
+        0
+      ]
+    },
+    "class_type": "ModelSamplingFlux",
+    "_meta": {
+      "title": "ModelSamplingFlux"
+    }
+  },
+  "44": {
+    "inputs": {
+      "image": [
+        "35",
+        1
+      ]
+    },
+    "class_type": "GetImageSize+",
+    "_meta": {
+      "title": "🔧 Get Image Size"
+    }
+  },
+  "45": {
+    "inputs": {
+      "lora_name": "Targa.safetensors",
+      "strength_model": 0.9,
+      "strength_clip": 1,
+      "model": [
+        "7",
+        0
+      ],
+      "clip": [
+        "25",
+        0
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  }
+}
