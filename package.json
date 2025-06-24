@@ -1,0 +1,81 @@
+{
+  "name": "comfyui-mcp-server",
+  "version": "1.0.0",
+  "description": "Comprehensive ComfyUI MCP server with automatic agentic controlling capabilities",
+  "type": "module",
+  "main": "build/index.js",
+  "bin": {
+    "comfyui-mcp": "./build/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node build/index.js",
+    "test": "jest",
+    "lint": "eslint src/**/*.ts",
+    "format": "prettier --write src/**/*.ts"
+  },
+  "keywords": [
+    "comfyui",
+    "mcp",
+    "model-context-protocol",
+    "ai",
+    "automation",
+    "workflow",
+    "stable-diffusion"
+  ],
+  "author": "ComfyUI MCP Team",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.3",
+    "zod": "^3.22.4",
+    "axios": "^1.6.0",
+    "fs-extra": "^11.2.0",
+    "node-fetch": "^3.3.2",
+    "ws": "^8.14.2",
+    "form-data": "^4.0.0",
+    "mime-types": "^2.1.35",
+    "chokidar": "^3.5.3",
+    "systeminformation": "^5.21.20",
+    "node-cron": "^3.0.3",
+    "uuid": "^9.0.1",
+    "chalk": "^5.3.0",
+    "ora": "^7.0.1",
+    "inquirer": "^9.2.12",
+    "glob": "^10.3.10"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/fs-extra": "^11.0.4",
+    "@types/ws": "^8.5.10",
+    "@types/mime-types": "^2.1.4",
+    "@types/uuid": "^9.0.7",
+    "@types/node-cron": "^3.0.11",
+    "@types/inquirer": "^9.0.7",
+    "@types/glob": "^8.1.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "eslint": "^8.54.0",
+    "prettier": "^3.1.0",
+    "typescript": "^5.3.0",
+    "jest": "^29.7.0",
+    "@types/jest": "^29.5.8",
+    "ts-jest": "^29.1.1"
+  },
+  "files": [
+    "build",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/comfyui-mcp-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-org/comfyui-mcp-server/issues"
+  },
+  "homepage": "https://github.com/your-org/comfyui-mcp-server#readme"
+}
